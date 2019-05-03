@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: cn.jpush.api:jpush-client:3.3.5">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cn.jpush.api/jpush-client/3.3.5/47d3cee383b2cc7392250a2bea0d8eb51a4d89ae/jpush-client-3.3.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cn.jpush.api/jpush-client/3.3.5/ae738e85cfd092d08cf8d68c81b4fd863ab5368a/jpush-client-3.3.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
