@@ -54,7 +54,7 @@ public class UserController {
      * @return
      */
     @RequestMapping("/testPort")
-    public String testPort(){
+    public String testSend(){
         BaseApplication.mainFrame.tsetPort();
         return "测试端口";
     }

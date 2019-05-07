@@ -294,8 +294,8 @@ public class MainFrame extends JFrame {
 	 */
 	private void sendData(ActionEvent evt) {
 		// 待发送数据
-		//String data = mDataInput.getText().toString();
-		String data ="eecc1001010000000000000000ff";
+		String data = mDataInput.getText().toString();
+		//String data ="eecc1001010000000000000000ff";
 
 		if (mSerialport == null) {
 
@@ -332,7 +332,11 @@ public class MainFrame extends JFrame {
 	 * @param args
 	 */
 	public void tsetPort(){
-		mSendData.setFocusPainted(true);
+		// 以十六进制的形式发送数据
+	//if (mDataHexChoice.isSelected()) {
+			String data="EECC1001010000000000000000FF";
+			SerialPortManager.sendToPort(mSerialport, ByteUtils.hexStr2Byte(data));
+	//	}
 	}
 
 	/**
@@ -341,11 +345,11 @@ public class MainFrame extends JFrame {
 	 * 湿度值 = (HH*256+HL) / 10，以%为单位。
 	 * 温度值 = (TH*256+TL) / 10，以℃为单位。
 	 * */
-	public static void main(String args[]) {
-		java.awt.EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				new MainFrame().setVisible(true);
-			}
-		});
-	}
+//	public static void main(String args[]) {
+//		java.awt.EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				new MainFrame().setVisible(true);
+//			}
+//		});
+//	}
 }
