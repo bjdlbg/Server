@@ -73,6 +73,7 @@ public class MainFrame extends JFrame {
 		setBounds(p.x - WIDTH / 2, p.y - HEIGHT / 2, WIDTH, HEIGHT);
 		this.setLayout(null);
 
+		//设置标题
 		setTitle("网工第八组--NFC考勤服务端：ClockingIn_server");
 	}
 
@@ -221,8 +222,8 @@ public class MainFrame extends JFrame {
 	private void openSerialPort(ActionEvent evt) {
 		// 获取串口名称
 		String commName = (String) mCommChoice.getSelectedItem();
-		// 获取波特率，默认为9600
-		int baudrate = 9600;
+		// 获取波特率，默认为115200
+		int baudrate = 115200;
 		String bps = (String) mBaudrateChoice.getSelectedItem();
 		baudrate = Integer.parseInt(bps);
 

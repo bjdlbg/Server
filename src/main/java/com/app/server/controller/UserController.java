@@ -1,7 +1,9 @@
 package com.app.server.controller;
 
 import com.app.server.BaseApplication;
+import com.app.server.mapper.StudentMappper;
 import com.app.server.mapper.UserMappper;
+import com.app.server.model.StudentModel;
 import com.app.server.model.response.BaseResponse;
 import com.app.server.model.response.DataResponse;
 import com.app.server.model.response.ConstResponse;
@@ -22,6 +24,9 @@ public class UserController {
 
     @Autowired
     private UserMappper userMappper;
+
+    @Autowired
+    private StudentMappper studentMappper;
 
 
     /**
@@ -58,6 +63,24 @@ public class UserController {
         BaseApplication.mainFrame.tsetPort();
         return "测试端口";
     }
+
+
+    /**
+     * 通过名字查询学生信息
+     * @param name
+     * @return
+     */
+    @RequestMapping("/selectStudent")
+    public String selectStudentByName(String name){
+        StudentModel model=studentMappper.findStuByName(name);
+        if (model!=null){
+            return model.toString();
+        }
+        return name;
+    }
+
+
+
 
 
 

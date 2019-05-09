@@ -18,6 +18,7 @@ public class BaseApplication {
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				//new MainFrame().setVisible(true);
+				//手动更改，添加图形界面
 				mainFrame=new MainFrame();
 			}
 		});

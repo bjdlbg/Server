@@ -7,7 +7,6 @@ import org.apache.ibatis.annotations.Select;
 
 public interface UserMappper {
 
-
     @Select("select * from user where user = #{user}")
     UserModel findUserByname(String user);
 
