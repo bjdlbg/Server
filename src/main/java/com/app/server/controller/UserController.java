@@ -19,6 +19,9 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+import java.util.Map;
+
 @RestController
 public class UserController {
 
@@ -70,7 +73,7 @@ public class UserController {
      * @param name
      * @return
      */
-    @RequestMapping("/selectStudent")
+    @RequestMapping("/selectStudentAll")
     public String selectStudentByName(String name){
         StudentModel model=studentMappper.findStuByName(name);
         if (model!=null){
@@ -80,9 +83,17 @@ public class UserController {
     }
 
 
+    @RequestMapping("/selectClassByTeacherName")
+    public List selectCalss(String teacherName){
+
+        List<Map<String,Object>> list= studentMappper.findClassByTeacherName( teacherName);
+        return list;
+    }
 
 
 
+
+/****************     下列接口暂时未使用     ******************/
 
 
     @RequestMapping("/user/login")
