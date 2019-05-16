@@ -83,13 +83,27 @@ public class UserController {
     }
 
 
+    /**
+     * 根据老师的名字查询老师课程
+     * @param teacherName
+     * @return
+     */
     @RequestMapping("/selectClassByTeacherName")
     public List selectCalss(String teacherName){
-
         List<Map<String,Object>> list= studentMappper.findClassByTeacherName( teacherName);
         return list;
     }
 
+    /**
+     * 返回某课程下所有学生名单
+     * @param className
+     * @return
+     */
+    @RequestMapping("/selectStuByClassName")
+    public List selectStuByClassName(String className){
+        List<Map<String,Object>> list=studentMappper.findStuByClass(className);
+        return list;
+    }
 
 
 

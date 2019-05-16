@@ -30,4 +30,13 @@ public interface StudentMappper {
     List<Map<String,Object>> findClassByTeacherName(String teacherName);
 
 
+    /**
+     * 查询选了某课程下的所有学生列表
+     * @param className
+     * @return
+     */
+    @Select("SELECT Sname FROM student where Sid = any(SELECT Sid FROM class WHERE Tid = any(SELECT Tid from teacher where Tclass = #{className}));")
+    List<Map<String,Object>> findStuByClass(String className);
+
+
 }

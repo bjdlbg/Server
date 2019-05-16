@@ -262,7 +262,9 @@ public class MainFrame extends JFrame {
 
 						// 以十六进制的形式接收数据
 						if (mDataHexChoice.isSelected()) {
-							mDataView.append(ByteUtils.byteArrayToHexString(data) + "\r\n");
+							//注释每秒连续读取数据
+							//mDataView.append(ByteUtils.byteArrayToHexString(data) + "\r\n");
+
 						}
 					}
 				} catch (Exception e) {
