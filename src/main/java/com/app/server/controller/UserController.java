@@ -67,6 +67,15 @@ public class UserController {
         return "测试端口";
     }
 
+    /**
+     * 测试server是否连接成功
+     * @return
+     */
+    @RequestMapping("/testServer")
+    public String testServer(){
+        return "连接成功";
+    }
+
 
     /**
      * 通过名字查询学生信息
@@ -77,7 +86,10 @@ public class UserController {
     public String selectStudentByName(String name){
         StudentModel model=studentMappper.findStuByName(name);
         if (model!=null){
-            return model.toString();
+            //server端显示数据
+
+           // BaseApplication.mainFrame.addMsgNextLine(model.toString());
+            return model.getString();
         }
         return name;
     }
@@ -91,6 +103,10 @@ public class UserController {
     @RequestMapping("/selectClassByTeacherName")
     public List selectCalss(String teacherName){
         List<Map<String,Object>> list= studentMappper.findClassByTeacherName( teacherName);
+        for (int i=0;i<list.size();i++){
+            //server端添加数据
+            BaseApplication.mainFrame.addMsgNextLine(list.toString());
+        }
         return list;
     }
 
@@ -102,6 +118,11 @@ public class UserController {
     @RequestMapping("/selectStuByClassName")
     public List selectStuByClassName(String className){
         List<Map<String,Object>> list=studentMappper.findStuByClass(className);
+        BaseApplication.mainFrame.addMsgNextLine(className+"下的学生名单如下：");
+        //for (int i=0;i<list.size();i++){
+            //添加学生名单
+        BaseApplication.mainFrame.addMsgNextLine(list.toString());
+        //}
         return list;
     }
 

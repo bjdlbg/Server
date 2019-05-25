@@ -38,5 +38,14 @@ public interface StudentMappper {
     @Select("SELECT Sname FROM student where Sid = any(SELECT Sid FROM class WHERE Tid = any(SELECT Tid from teacher where Tclass = #{className}));")
     List<Map<String,Object>> findStuByClass(String className);
 
+    /**
+     * 通过卡片id查询学生信息
+     * @param cardNum
+     * @return
+     */
+    @Select("select Sname,Snumber,Sclass from student WHERE Scardnum= #{cardNum}")
+    List<Map<String,Object>> findStuByCardNum(String cardNum);
+
+
 
 }

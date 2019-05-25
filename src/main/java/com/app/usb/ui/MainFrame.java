@@ -23,9 +23,9 @@ import java.util.List;
 public class MainFrame extends JFrame {
 
 	// 程序界面宽度
-	public final int WIDTH = 530;
+	public final int WIDTH = 830;
 	// 程序界面高度
-	public final int HEIGHT = 390;
+	public final int HEIGHT = 690;
 
 	// 数据显示区
 	private JTextArea mDataView = new JTextArea();
@@ -83,12 +83,12 @@ public class MainFrame extends JFrame {
 	private void initComponents() {
 		// 数据显示
 		mDataView.setFocusable(false);
-		mScrollDataView.setBounds(10, 10, 505, 200);
+		mScrollDataView.setBounds(10, 10, 805, 400);
 		add(mScrollDataView);
 
 		// 串口设置
 		mSerialPortPanel.setBorder(BorderFactory.createTitledBorder("串口参数"));
-		mSerialPortPanel.setBounds(10, 220, 170, 130);
+		mSerialPortPanel.setBounds(10, 420, 170, 130);
 		mSerialPortPanel.setLayout(null);
 		add(mSerialPortPanel);
 
@@ -117,7 +117,7 @@ public class MainFrame extends JFrame {
 
 		// 操作
 		mOperatePanel.setBorder(BorderFactory.createTitledBorder("操作"));
-		mOperatePanel.setBounds(200, 220, 315, 130);
+		mOperatePanel.setBounds(200, 420, 315, 130);
 		mOperatePanel.setLayout(null);
 		add(mOperatePanel);
 
