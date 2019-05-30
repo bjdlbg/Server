@@ -54,16 +54,6 @@ public class StudentModel {
                 ", number='" + sNumber + '\'' +
                 ", cardNum='" + sCardNum + '\'' +
                 ", id='" + sId + '\'' +
-                ", one='" + sOne + '\'' +
-                ", two='" + sTwo + '\'' +
-                ", three='" + sThree + '\'' +
-                ", four='" + sFour + '\'' +
-                ", five='" + sFive + '\'' +
-                ", six='" + sSix + '\'' +
-                ", seven='" + sSeven + '\'' +
-                ", eight='" + sEight + '\'' +
-                ", nine='" + sNine + '\'' +
-                ", ten='" + sTen + '\'' +
                 '}';
     }
 }

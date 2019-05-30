@@ -3,6 +3,7 @@ package com.app.server.mapper;
 import com.app.server.model.ClassModel;
 import com.app.server.model.StudentModel;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 import java.util.Map;
@@ -43,8 +44,45 @@ public interface StudentMappper {
      * @param cardNum
      * @return
      */
-    @Select("select Sname,Snumber,Sclass from student WHERE Scardnum= #{cardNum}")
-    List<Map<String,Object>> findStuByCardNum(String cardNum);
+    @Select("select Sname from student WHERE Scardnum= #{cardNum}")
+    String findStuByCardNum(String cardNum);
+
+
+    /**
+     * 根据学生名字与当前周数更新上课状态
+     * @param name
+     * @param name
+     * @return
+     */
+    @Update("UPDATE student SET Sone = '上过' WHERE Sname= #{name}")
+    int updateWeekOneByName(String name);
+
+    @Update("UPDATE student SET Stwo = '上过' WHERE Sname= #{name}")
+    int updateWeekTwoByName(String name);
+
+    @Update("UPDATE student SET Sthree = '上过' WHERE Sname= #{name}")
+    int updateWeekThreeByName(String name);
+
+    @Update("UPDATE student SET Sfour = '上过' WHERE Sname= #{name}")
+    int updateWeekFourByName(String name);
+
+    @Update("UPDATE student SET Sfive = '上过' WHERE Sname= #{name}")
+    int updateWeekFiveByName(String name);
+
+    @Update("UPDATE student SET Ssix = '上过' WHERE Sname= #{name}")
+    int updateWeekSixByName(String name);
+
+    @Update("UPDATE student SET Sseven = '上过' WHERE Sname= #{name}")
+    int updateWeekSevenByName(String name);
+
+    @Update("UPDATE student SET Seight = '上过' WHERE Sname= #{name}")
+    int updateWeekEightByName(String name);
+
+    @Update("UPDATE student SET Snine = '上过' WHERE Sname= #{name}")
+    int updateWeekNineByName(String name);
+
+    @Update("UPDATE student SET Sten = '上过' WHERE Sname= #{name}")
+    int updateWeekTenByName(String name);
 
 
 

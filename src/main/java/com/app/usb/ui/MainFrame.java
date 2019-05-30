@@ -3,6 +3,7 @@ package com.app.usb.ui;
 import com.app.usb.manager.SerialPortManager;
 import com.app.usb.utils.ByteUtils;
 import com.app.usb.utils.ShowUtils;
+
 import gnu.io.PortInUseException;
 import gnu.io.SerialPort;
 
@@ -12,6 +13,7 @@ import javax.swing.event.PopupMenuListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -21,6 +23,11 @@ import java.util.List;
  */
 @SuppressWarnings("all")
 public class MainFrame extends JFrame {
+
+	//api
+//	public static final String APP_ID = "16347492";
+//	public static final String API_KEY = "0rv4RB6wkjFds6azGlkGzgXP";
+//	public static final String SECRET_KEY = "jdzNszQa8P62jIac1zA0rVCrR90Z5HS2";
 
 	// 程序界面宽度
 	public final int WIDTH = 830;
@@ -46,6 +53,11 @@ public class MainFrame extends JFrame {
 	private JTextArea mDataInput = new JTextArea();
 	private JButton mSerialPortOperate = new JButton("打开串口");
 	private JButton mSendData = new JButton("发送数据");
+
+
+	//操控api区域
+
+	//private
 
 	// 串口列表
 	private List<String> mCommList = null;
@@ -342,12 +354,34 @@ public class MainFrame extends JFrame {
 	//	}
 	}
 
+
 	/**
-	 * 入口
+	 * 测试百度云api
+	 */
+	public void testApi(){
+//		AipSpeech client = new AipSpeech(APP_ID, API_KEY, SECRET_KEY);
+//		TtsResponse res = client.synthesis("欢迎来到clocking in 服务端", "zh", 1, null);
+//		byte[] data = res.getData();
+//		JSONObject res1 = res.getResult();
+//		if (data != null) {
+//			try {
+//				Util.writeBytesToFileSystem(data, "output.mp3");
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//		}
+//		if (res1 != null) {
+//			System.out.println(res1.toString(2));
+//		}
+	}
+
+	/**
+	 * 入口（测试用）
 	 * 温湿度数据格式：00 00 HH, HL, TH,TL
 	 * 湿度值 = (HH*256+HL) / 10，以%为单位。
 	 * 温度值 = (TH*256+TL) / 10，以℃为单位。
 	 * */
+
 //	public static void main(String args[]) {
 //		java.awt.EventQueue.invokeLater(new Runnable() {
 //			public void run() {
@@ -355,4 +389,6 @@ public class MainFrame extends JFrame {
 //			}
 //		});
 //	}
+
+
 }

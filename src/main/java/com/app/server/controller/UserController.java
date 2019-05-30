@@ -76,6 +76,10 @@ public class UserController {
         return "连接成功";
     }
 
+//    @RequestMapping("/testApi")
+//    public void testApi(){
+//        BaseApplication.mainFrame.testApi();
+//    }
 
     /**
      * 通过名字查询学生信息
@@ -103,10 +107,10 @@ public class UserController {
     @RequestMapping("/selectClassByTeacherName")
     public List selectCalss(String teacherName){
         List<Map<String,Object>> list= studentMappper.findClassByTeacherName( teacherName);
-        for (int i=0;i<list.size();i++){
+//        for (int i=0;i<list.size();i++){
             //server端添加数据
             BaseApplication.mainFrame.addMsgNextLine(list.toString());
-        }
+       // }
         return list;
     }
 
@@ -124,6 +128,54 @@ public class UserController {
         BaseApplication.mainFrame.addMsgNextLine(list.toString());
         //}
         return list;
+    }
+
+    /**
+     * 根据卡片id搜索对应人名
+     * @param cardId
+     * @return
+     */
+    @RequestMapping("/selectNameByCard")
+    public String selectNameByCard(String cardId){
+        String name=studentMappper.findStuByCardNum(cardId);
+        if (name!=null){
+            return name;
+        }
+        return "该卡片未绑定";
+    }
+
+    /**
+     * 根据情况来设置不同周签到情况
+     * @param weekNum
+     * @param name
+     * @return 影响行数
+     */
+    @RequestMapping("/updateWeek")
+    public int updateWeek(String weekNum,String name){
+       switch (weekNum){
+           case "第一周":
+                return studentMappper.updateWeekOneByName(name);
+           case "第二周":
+               return studentMappper.updateWeekTwoByName(name);
+           case "第三周":
+               return studentMappper.updateWeekThreeByName(name);
+           case "第四周":
+               return studentMappper.updateWeekFourByName(name);
+           case "第五周":
+               return studentMappper.updateWeekFiveByName(name);
+           case "第六周":
+               return studentMappper.updateWeekSixByName(name);
+           case "第七周":
+               return studentMappper.updateWeekSevenByName(name);
+           case "第八周":
+               return studentMappper.updateWeekEightByName(name);
+           case "第九周":
+               return studentMappper.updateWeekNineByName(name);
+           case "第十周":
+               return studentMappper.updateWeekTenByName(name);
+               default:break;
+       }
+       return 0;
     }
 
 
